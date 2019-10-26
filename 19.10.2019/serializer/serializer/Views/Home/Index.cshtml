@@ -1,0 +1,83 @@
+﻿@model serializer.Models.ValCurs
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@section stil{
+    <link rel="stylesheet" href="~/Content/mystyle.css">
+}
+
+
+
+
+
+
+<!-- Main conventor body -->
+<div class="mainBodyConventor">
+    <div class="row editRow">
+        <div class="col-md-3">
+            <div class="box">
+                <div class="insideBox">
+                    <div class="flag">
+                        <img src="https://www.countryflags.io/AZ/shiny/64.png">
+                    </div>
+                   <span>AZN</span>
+                </div>
+                <input type="number" id="from" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="box">
+                <select name="leftVal" id="rightConv" class="form-control">
+                    @foreach (var item in Model.ValType[1].Valute)
+                    {
+                        <option value="@item.Value">@item.Code</option>
+                    }
+                </select>
+                <input type="number" id="to" class="form-control">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Main conventor body -->
+
+
+
+@section scripts{
+    
+    <script>
+
+        var num;
+        var currencyVal;
+        $("#from").keyup(function () {
+            num = parseFloat($(this).val());
+            currencyVal = parseFloat($("#rightConv").val());
+            var result = num / currencyVal;
+            $("#to").val(result.toFixed(4));
+        })
+
+
+        $("#rightConv").change(function () {
+
+             currencyVal = parseFloat($(this).val());
+             num = parseFloat($("#from").val());
+            var result = num / currencyVal;
+            $("#to").val(result.toFixed(4));
+        })
+
+
+
+        $("#to").keyup(function () {
+
+             currencyVal = parseFloat($("#rightConv").val());
+             num = parseFloat($(this).val());
+            var result = num * currencyVal;
+            $("#from").val(result);
+        })
+
+
+
+    </script>
+    
+    }

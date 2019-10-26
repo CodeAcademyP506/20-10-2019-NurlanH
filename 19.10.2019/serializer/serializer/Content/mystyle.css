@@ -1,0 +1,40 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+
+
+body {
+    display: flex;
+    align-items: center;
+    height: 500px;
+}
+
+.mainBodyConventor {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    justify-content: center;
+}
+
+
+
+.box {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.insideBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+.editRow {
+    justify-content: center;
+}
